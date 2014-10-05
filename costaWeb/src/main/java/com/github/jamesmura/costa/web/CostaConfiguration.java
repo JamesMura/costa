@@ -18,6 +18,7 @@ public class CostaConfiguration extends Configuration {
 
     public DataSourceFactory getDataSourceFactory() {
         String database_url = System.getenv("DATABASE_URL");
+        System.out.printf("Database URL :%s", database_url);
         if (database_url == null) {
             return database;
         } else {
