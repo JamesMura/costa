@@ -1,1 +1,1 @@
-web   java $JAVA_OPTS -Ddw.http.port=$PORT -Ddw.http.adminPort=$PORT -jar costaWeb/build/libs/costaWeb.jar server conf.yaml
+web: java $JAVA_OPTS -Ddw.server.connector.port=$PORT -jar costaWeb/build/libs/costaWeb.jar server conf.yaml
