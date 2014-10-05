@@ -1,12 +1,14 @@
-package com.github.jamesmura.costa;
+package com.github.jamesmura.costa.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.github.jamesmura.costa.R;
 
-public class Costs extends Activity {
+
+public class ListCostsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

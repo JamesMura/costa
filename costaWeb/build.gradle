@@ -24,7 +24,6 @@ jar {
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':costaModels')
     compile(
             'io.dropwizard:dropwizard-core:' + dropwizardVersion,
             'io.dropwizard:dropwizard-hibernate:' + dropwizardVersion,

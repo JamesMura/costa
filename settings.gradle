@@ -1,1 +1,1 @@
-include ':app', ':costaWeb', ':costaModels'
+include ':app', ':costaWeb'

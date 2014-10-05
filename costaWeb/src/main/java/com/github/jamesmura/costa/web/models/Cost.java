@@ -1,7 +1,5 @@
 package com.github.jamesmura.costa.web.models;
 
-import com.github.jamesmura.costa.models.CostConcept;
-
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -25,7 +23,7 @@ import javax.persistence.Table;
                 query = "SELECT c FROM Cost c WHERE c.id = :id"
         )
 })
-public class Cost extends CostConcept {
+public class Cost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
