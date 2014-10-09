@@ -16,5 +16,5 @@ allprojects {
     }
 }
 
-task stage(dependsOn: [':costaWeb:clean', ':costaWeb:jar'])
+task stage(dependsOn: [':web:clean', ':web:jar'])
 

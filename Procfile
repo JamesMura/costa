@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Ddw.server.connector.port=$PORT -jar costaWeb/build/libs/costaWeb.jar server conf.yaml
+web: java $JAVA_OPTS -jar web/build/libs/web.jar db migrate ./conf.yaml && java $JAVA_OPTS -jar web/build/libs/web.jar server conf.yaml

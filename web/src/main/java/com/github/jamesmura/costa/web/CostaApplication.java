@@ -3,7 +3,7 @@ package com.github.jamesmura.costa.web;
 import com.github.jamesmura.costa.web.models.Cost;
 import com.github.jamesmura.costa.web.persistence.CostsDao;
 import com.github.jamesmura.costa.web.resources.CostsResource;
-
+import de.thomaskrille.dropwizard.environment_configuration.EnvironmentConfigurationFactoryFactory;
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
@@ -26,6 +26,7 @@ public class CostaApplication extends Application<CostaConfiguration> {
 
     @Override
     public void initialize(Bootstrap<CostaConfiguration> bootstrap) {
+        bootstrap.setConfigurationFactoryFactory(new EnvironmentConfigurationFactoryFactory());
         bootstrap.addBundle(new MigrationsBundle<CostaConfiguration>() {
             @Override
             public DataSourceFactory getDataSourceFactory(CostaConfiguration configuration) {

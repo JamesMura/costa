@@ -30,3 +30,11 @@ database:
 
   # whether or not idle connections should be validated
   checkConnectionWhileIdle: false
+
+
+server:
+  adminMinThreads: 1
+  adminMaxThreads: 64
+  applicationConnectors:
+    - type: http
+      port: $env:PORT:8080

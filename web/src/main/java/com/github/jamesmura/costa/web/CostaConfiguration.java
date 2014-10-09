@@ -16,6 +16,8 @@ public class CostaConfiguration extends Configuration {
     @JsonProperty("database")
     private DataSourceFactory database = new DataSourceFactory();
 
+
+
     public DataSourceFactory getDataSourceFactory() {
         String database_url = System.getenv("DATABASE_URL");
         System.out.printf("Database URL :%s", database_url);
