@@ -1,4 +1,4 @@
-package com.github.jamesmura.costa.web.resources;
+package com.github.jamesmura.costa.web.auth;
 
 import com.github.jamesmura.costa.web.models.User;
 import com.github.jamesmura.costa.web.persistence.UserDao;

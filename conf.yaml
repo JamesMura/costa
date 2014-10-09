@@ -37,4 +37,4 @@ server:
   adminMaxThreads: 64
   applicationConnectors:
     - type: http
-      port: $env:PORT:8080
+      port: $env:PORT:5000

@@ -3,14 +3,12 @@ package com.github.jamesmura.costa.web.resources;
 import com.codahale.metrics.annotation.Timed;
 import com.github.jamesmura.costa.web.models.User;
 import com.github.jamesmura.costa.web.persistence.UserDao;
+import io.dropwizard.auth.Auth;
 import io.dropwizard.hibernate.UnitOfWork;
 import org.hibernate.HibernateException;
 
 import javax.validation.Valid;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Arrays;
@@ -19,7 +17,7 @@ import java.util.List;
 
 import static javax.ws.rs.core.Response.status;
 
-@Path("/user")
+@Path("/api/user")
 @Produces(MediaType.APPLICATION_JSON)
 public class UserResource {
 
@@ -47,5 +45,13 @@ public class UserResource {
         errorsHash.put("errors", Arrays.asList(exception.getMessage()));
         Response.ResponseBuilder b = status(Response.Status.BAD_REQUEST).entity(errorsHash);
         throw new WebApplicationException(b.build());
+    }
+
+    @GET
+    @Timed
+    @UnitOfWork
+    @Path("profile")
+    public User profile(@Auth User user) {
+        return user;
     }
 }

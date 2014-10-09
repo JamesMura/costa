@@ -1,26 +1,17 @@
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'gradle-one-jar'
 
 mainClassName = 'com.github.jamesmura.costa.web.CostaApplication'
 project.ext {
     dropwizardVersion = '0.7.1'
 }
+run {
+    args('server', '../conf.yaml')
+}
 
-jar {
-
-    manifest {
-        attributes "Implementation-Title": "costaWeb"
-        attributes "Main-Class": mainClassName
-    }
-
-    doFirst {
-        from(configurations.runtime.resolve().collect { it.isDirectory() ? it : zipTree(it) }) {
-            exclude 'META-INF/MANIFEST.MF'
-            exclude 'META-INF/*.SF'
-            exclude 'META-INF/*.DSA'
-            exclude 'META-INF/*.RSA'
-        }
-    }
+task appJar(type: OneJar) {
+    mainClass = mainClassName
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -31,5 +22,6 @@ dependencies {
             'io.dropwizard:dropwizard-auth:' + dropwizardVersion,
             'org.postgresql:postgresql:9.3-1102-jdbc41'
     )
+    compile 'org.liquibase:liquibase-core:3.2.2'
     compile 'de.thomaskrille.dropwizard:dropwizard-environment-configuration:1.0'
 }

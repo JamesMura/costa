@@ -1,10 +1,10 @@
 package com.github.jamesmura.costa.web;
 
+import com.github.jamesmura.costa.web.auth.CostaAuthenticator;
 import com.github.jamesmura.costa.web.models.Cost;
 import com.github.jamesmura.costa.web.models.User;
 import com.github.jamesmura.costa.web.persistence.CostsDao;
 import com.github.jamesmura.costa.web.persistence.UserDao;
-import com.github.jamesmura.costa.web.resources.CostaAuthenticator;
 import com.github.jamesmura.costa.web.resources.CostsResource;
 import com.github.jamesmura.costa.web.resources.UserResource;
 import de.thomaskrille.dropwizard.environment_configuration.EnvironmentConfigurationFactoryFactory;
