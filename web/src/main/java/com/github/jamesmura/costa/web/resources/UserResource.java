@@ -17,7 +17,7 @@ import java.util.List;
 
 import static javax.ws.rs.core.Response.status;
 
-@Path("/api/user")
+@Path("/user")
 @Produces(MediaType.APPLICATION_JSON)
 public class UserResource {
 

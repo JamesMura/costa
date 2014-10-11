@@ -59,7 +59,7 @@ gulp.task('html', ['scripts', 'partials'], function () {
       quotes: true
     }))
     .pipe(htmlFilter.restore())
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('../web/src/main/resources/app'))
     .pipe($.size());
 });
 

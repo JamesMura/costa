@@ -19,6 +19,8 @@ dependencies {
             'io.dropwizard:dropwizard-core:' + dropwizardVersion,
             'io.dropwizard:dropwizard-hibernate:' + dropwizardVersion,
             'io.dropwizard:dropwizard-migrations:' + dropwizardVersion,
+            'io.dropwizard:dropwizard-assets:' + dropwizardVersion,
+
             'io.dropwizard:dropwizard-auth:' + dropwizardVersion,
             'org.postgresql:postgresql:9.3-1102-jdbc41'
     )

@@ -9,6 +9,7 @@ import com.github.jamesmura.costa.web.resources.CostsResource;
 import com.github.jamesmura.costa.web.resources.UserResource;
 import de.thomaskrille.dropwizard.environment_configuration.EnvironmentConfigurationFactoryFactory;
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.auth.basic.BasicAuthProvider;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
@@ -31,6 +32,7 @@ public class CostaApplication extends Application<CostaConfiguration> {
 
     @Override
     public void initialize(Bootstrap<CostaConfiguration> bootstrap) {
+        bootstrap.addBundle(new AssetsBundle("/app/", "/", "index.html", "assets"));
         bootstrap.setConfigurationFactoryFactory(new EnvironmentConfigurationFactoryFactory());
         bootstrap.addBundle(new MigrationsBundle<CostaConfiguration>() {
             @Override
@@ -50,6 +52,7 @@ public class CostaApplication extends Application<CostaConfiguration> {
     public void run(CostaConfiguration configuration, Environment environment) throws Exception {
         final CostsDao dao = new CostsDao(hibernate.getSessionFactory());
         final UserDao userDao = new UserDao(hibernate.getSessionFactory());
+        environment.jersey().setUrlPattern("/api/*");
         environment.jersey().register(new BasicAuthProvider<User>(new CostaAuthenticator(userDao), "costa"));
         environment.jersey().register(new UserResource(userDao));
         environment.jersey().register(new CostsResource(dao));
