@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar web/build/libs/web-standalone.jar db migrate ./conf.yaml && java $JAVA_OPTS -jar web/build/libs/web-standalone.jar server conf.yaml
+web: java $JAVA_OPTS -jar web/build/libs/web-standalone.jar server conf.yaml
